@@ -67,7 +67,11 @@ elif authentication_method == "Authentification":
                 st.write(f'My temp file {file_path_to_compare} comparing to {file_path} : score {score} - meme personne? : {prediction}')
                 
                 if prediction.item():
-                    st.info(f'Vous etes {file_path.split('_')[0].split('/')[0]}')
+                    file_path = "Data/AAS_Recording2.wav"
+                    directory, file_name = os.path.split(file_path)
+                    speaker_id, recording_id = file_name.split("_")
+                    st.info(f'Vous etes {speaker_id}')
+                    #st.info(f'Vous etes {file_path.split('_')[0].split('/')[0]}')
                     break
 
             st.session_state["uploader"] = None
